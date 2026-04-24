@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Upload from "./components/Upload";
+import FileList from "./components/FileList";
+import "./App.css";
 
 function App() {
+  const [files, setFiles] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>☁️ Cloud File Upload</h1>
+
+      <Upload setFiles={setFiles} />
+      <FileList files={files} />
     </div>
   );
 }
